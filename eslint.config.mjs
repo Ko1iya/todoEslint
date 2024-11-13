@@ -59,7 +59,7 @@ export default [
       ],
     },
   },
-  { ignores: ['eslint.config.mjs'] },
+  { ignores: ['eslint.config.mjs', '**/*.d.ts', '**/config/**'] },
   {
     settings: {
       'import/resolver': {

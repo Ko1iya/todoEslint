@@ -6,7 +6,7 @@
     "build": "webpack --env mode=production",
     "start": "webpack serve",
     "lint": "eslint src",
-    "lint:fix": "eslint src --fix",
+    "lint:fix": "eslint --fix",
     "format": "prettier .",
     "prepare": "husky"
   },
