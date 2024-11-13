@@ -7,7 +7,20 @@
     "deploy": "webpack --env mode=production",
     "start": "webpack serve",
     "lint": "eslint src",
-    "lint:fix": "eslint src --fix"
+    "lint:fix": "eslint src --fix",
+    "format": "prettier .",
+    "prepare": "husky"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "npm run lint:fix",
+      "git add"
+    ]
   },
   "keywords": [],
   "author": "",
@@ -42,6 +55,8 @@
     "fork-ts-checker-webpack-plugin": "^9.0.0",
     "globals": "^15.12.0",
     "html-webpack-plugin": "^5.5.3",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
     "mini-css-extract-plugin": "^2.7.6",
     "react-refresh": "^0.14.0",
     "react-refresh-typescript": "^2.0.9",
