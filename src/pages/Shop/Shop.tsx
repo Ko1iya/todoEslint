@@ -1,8 +1,8 @@
-import React from "react"
-import styles from "./Shop.module.scss"
+import React from 'react';
+import styles from './Shop.module.scss';
 
-const Shop = () => {
-  return <div className={styles.Shop}>Shop</div>
+function Shop() {
+  return <div className={styles.Shop}>Shop</div>;
 }
 
-export default Shop
+export default Shop;

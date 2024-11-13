@@ -1,29 +1,29 @@
-import { createRoot } from "react-dom/client"
-import { App } from "./components/App/App"
+import { createRoot } from 'react-dom/client';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { Suspense } from 'react';
+import App from './components/App/App';
 
-import { createBrowserRouter, RouterProvider } from "react-router-dom"
-import ErrorPage from "./errorPage"
-import { LazyAbout } from "./pages/About/About.lazy"
-import { LazyShop } from "@/pages/Shop/Shop.lazy"
-import { Suspense } from "react"
+import ErrorPage from './errorPage';
+import LazyAbout from './pages/About/About.lazy';
+import LazyShop from '@/pages/Shop/Shop.lazy';
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <App />,
     children: [
       {
-        path: "/about",
+        path: '/about',
         element: (
-          <Suspense fallback={"Loading..."}>
+          <Suspense fallback="Loading...">
             <LazyAbout />
           </Suspense>
         ),
       },
       {
-        path: "/shop",
+        path: '/shop',
         element: (
-          <Suspense fallback={"Loading..."}>
+          <Suspense fallback="Loading...">
             <LazyShop />
           </Suspense>
         ),
@@ -31,14 +31,14 @@ const router = createBrowserRouter([
     ],
     errorElement: <ErrorPage />,
   },
-])
+]);
 
-const root = document.getElementById("root")
+const root = document.getElementById('root');
 
 if (!root) {
-  throw new Error("root not found")
+  throw new Error('root not found');
 }
 
-const container = createRoot(root)
+const container = createRoot(root);
 
-container.render(<RouterProvider router={router} />)
+container.render(<RouterProvider router={router} />);
