@@ -3,7 +3,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Suspense } from 'react';
 import App from './components/App/App';
 
-import ErrorPage from './errorPage';
+// import ErrorPage from './errorPage';
 import LazyAbout from './pages/About/About.lazy';
 import LazyShop from '@/pages/Shop/Shop.lazy';
 
@@ -29,7 +29,7 @@ const router = createBrowserRouter([
         ),
       },
     ],
-    errorElement: <ErrorPage />,
+    // errorElement: <ErrorPage />,
   },
 ]);
 
