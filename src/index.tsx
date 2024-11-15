@@ -1,11 +1,12 @@
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { Suspense } from 'react';
+// import { Suspense } from 'react';
 import App from './components/App/App';
 
-// import ErrorPage from './errorPage';
-import LazyAbout from './pages/About/About.lazy';
-import LazyShop from '@/pages/Shop/Shop.lazy';
+import ErrorPage from './errorPage';
+// import LazyAbout from './pages/About/About.lazy';
+// import LazyShop from '@/pages/Shop/Shop.lazy';
+import Shop from './pages/Shop/Shop';
 
 const router = createBrowserRouter([
   {
@@ -14,22 +15,18 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/about',
-        element: (
-          <Suspense fallback="Loading...">
-            <LazyAbout />
-          </Suspense>
-        ),
+        element: <Shop />,
       },
-      {
-        path: '/shop',
-        element: (
-          <Suspense fallback="Loading...">
-            <LazyShop />
-          </Suspense>
-        ),
-      },
+      // {
+      //   path: '/shop',
+      //   element: (
+      //     <Suspense fallback="Loading...">
+      //       <LazyShop />
+      //     </Suspense>
+      //   ),
+      // },
     ],
-    // errorElement: <ErrorPage />,
+    errorElement: <ErrorPage />,
   },
 ]);
 

@@ -1,22 +1,23 @@
-import type { WebpackConfiguration } from "webpack-dev-server"
-import { buildDevServer } from "./buildDevServer"
-import { buildLoader } from "./buildLoader"
-import { buildPlugins } from "./buildPlugins"
-import { buildResolver } from "./buildResolver"
-import { BuildOptions } from "./types/types"
+import type { WebpackConfiguration } from 'webpack-dev-server';
+import { buildDevServer } from './buildDevServer';
+import { buildLoader } from './buildLoader';
+import { buildPlugins } from './buildPlugins';
+import { buildResolver } from './buildResolver';
+import { BuildOptions } from './types/types';
 
 export default function buildWebpack(env: BuildOptions): WebpackConfiguration {
-  const isDev: boolean = env.mode !== "production"
+  const isDev: boolean = env.mode !== 'production';
 
   return {
-    mode: env.mode ?? "development",
+    mode: env.mode ?? 'development',
     entry: env.paths.entry,
     output: {
       path: env.paths.output,
-      filename: "[name].[contenthash].js",
+      filename: '[name].[contenthash].js',
       clean: true,
+      publicPath: 'auto',
     },
-    devtool: isDev ? "inline-source-map" : undefined,
+    devtool: isDev ? 'inline-source-map' : undefined,
     plugins: buildPlugins(env),
     module: {
       // Порядок имеет значение
@@ -24,5 +25,5 @@ export default function buildWebpack(env: BuildOptions): WebpackConfiguration {
     },
     resolve: buildResolver(env),
     devServer: isDev ? buildDevServer(env) : undefined,
-  }
+  };
 }

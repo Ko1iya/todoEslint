@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, Link } from 'react-router-dom';
 import styles from './App.module.scss';
 import iconpng from '@/assets/myPNG.png';
 import Iconsvg from '@/assets/mySvg.svg';
@@ -19,9 +19,9 @@ function App() {
       </button>
       <img width="100px" height="100px" src={iconpng} alt="" />
       <Iconsvg fill="red" width={50} height={50} />
-      <a href="/about">about</a>
-      <a href="/shop">shop</a>
-      <a href="/contact">contact</a>
+      <Link to="about">about</Link>
+      <Link to="shop">shop</Link>
+      <Link to="contact">contact</Link>
 
       <h1>s</h1>
       <Outlet />
