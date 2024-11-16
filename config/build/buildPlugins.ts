@@ -6,7 +6,7 @@ import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
 import { Configuration, DefinePlugin, ProvidePlugin } from 'webpack';
 import { BuildOptions } from './types/types';
-import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+// import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 export function buildPlugins(env: BuildOptions): Configuration['plugins'] {
   const isDev: boolean = env.mode !== 'production';
