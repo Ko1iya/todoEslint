@@ -4,7 +4,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
-import { Configuration, DefinePlugin } from 'webpack';
+import { Configuration, DefinePlugin, ProvidePlugin } from 'webpack';
 import { BuildOptions } from './types/types';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
@@ -19,6 +19,9 @@ export function buildPlugins(env: BuildOptions): Configuration['plugins'] {
     }),
     new DefinePlugin({
       PRODUCTION: JSON.stringify(isDev),
+    }),
+    new ProvidePlugin({
+      React: 'react',
     }),
   ];
 
