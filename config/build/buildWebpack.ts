@@ -14,8 +14,8 @@ export default function buildWebpack(env: BuildOptions): WebpackConfiguration {
     output: {
       path: env.paths.output,
       filename: '[name].[contenthash].js',
+      publicPath: 'auto',
       clean: true,
-      publicPath: '/',
     },
     devtool: isDev ? 'inline-source-map' : undefined,
     plugins: buildPlugins(env),

@@ -1,5 +1,5 @@
 import { createRoot } from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createHashRouter, RouterProvider } from 'react-router-dom';
 // import { Suspense } from 'react';
 import App from './components/App/App';
 
@@ -8,27 +8,30 @@ import ErrorPage from './errorPage';
 // import LazyShop from '@/pages/Shop/Shop.lazy';
 import Shop from './pages/Shop/Shop';
 
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <App />,
-    children: [
-      {
-        path: '/about',
-        element: <Shop />,
-      },
-      // {
-      //   path: '/shop',
-      //   element: (
-      //     <Suspense fallback="Loading...">
-      //       <LazyShop />
-      //     </Suspense>
-      //   ),
-      // },
-    ],
-    errorElement: <ErrorPage />,
-  },
-]);
+const router = createHashRouter(
+  [
+    {
+      path: '/',
+      element: <App />,
+      children: [
+        {
+          path: 'about',
+          element: <Shop />,
+        },
+        // {
+        //   path: '/shop',
+        //   element: (
+        //     <Suspense fallback="Loading...">
+        //       <LazyShop />
+        //     </Suspense>
+        //   ),
+        // },
+      ],
+      errorElement: <ErrorPage />,
+    },
+  ],
+  // { basename: '/build' },
+);
 
 const root = document.getElementById('root');
 
